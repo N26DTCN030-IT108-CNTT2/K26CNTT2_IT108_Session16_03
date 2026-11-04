@@ -61,7 +61,12 @@ Do các thuộc tính `margin` âm hoặc `position: absolute` bị đặt sai, 
     display: block;
     clear: both;
 }
-🧪 Phần 3: Chẩn đoán sự cố Kiểm thử (Browser Engine Override)Tình huống: Đã thay đổi margin trong tab Styles nhưng phần tử vẫn đứng yên không di chuyển.Các nguyên nhân do Browser Engine & Quy tắc Ưu tiên (CSS Specificity):Bị ghi đè bởi cờ !important: File CSS gốc có thuộc tính khác mang cờ !important (ví dụ: margin-top: -40px !important;), cản trở thay đổi thông thường từ DevTools.Thuộc tính position: absolute / fixed: Phần tử bị rút khỏi luồng hiển thị tự nhiên (Normal Flow) của văn bản. Khi đó margin chỉ có tác dụng so với khung định vị gần nhất chứ không đẩy các phần tử kề bên.Mô hình Flexbox / Grid ghi đè: Phần tử cha đang mang display: flex hoặc grid, trong đó thuộc tính align-items, justify-content hoặc grid-row từ cha quyết định vị trí chính của thẻ con thay vì margin.Ghi đè thuộc tính Inline Style: Thẻ HTML gốc dán trực tiếp style="..." có độ ưu tiên cao hơn class thông thường.
+🧪 Phần 3: Chẩn đoán sự cố Kiểm thử (Browser Engine Override)Tình huống: Đã thay đổi margin trong tab Styles nhưng phần tử vẫn đứng yên không di chuyển.
+Các nguyên nhân do Browser Engine & Quy tắc Ưu tiên (CSS Specificity):
+Bị ghi đè bởi cờ !important: File CSS gốc có thuộc tính khác mang cờ !important (ví dụ: margin-top: -40px !important;), cản trở thay đổi thông thường từ DevTools
+.Thuộc tính position: absolute / fixed: 
+Phần tử bị rút khỏi luồng hiển thị tự nhiên (Normal Flow) của văn bản. Khi đó margin chỉ có tác dụng so với khung định vị gần nhất chứ không đẩy các phần tử kề bên.
+Mô hình Flexbox / Grid ghi đè: Phần tử cha đang mang display: flex hoặc grid, trong đó thuộc tính align-items, justify-content hoặc grid-row từ cha quyết định vị trí chính của thẻ con thay vì margin.Ghi đè thuộc tính Inline Style: Thẻ HTML gốc dán trực tiếp style="..." có độ ưu tiên cao hơn class thông thường.
 
 
 
